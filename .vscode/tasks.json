@@ -8,8 +8,12 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "-I",
+                "${workspaceFolder}/untitled/include/",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/untitled/bin/${fileBasenameNoExtension}",
+                "-lX11",
+                "-lcairo"
             ],
             "options": {
                 "cwd": "${fileDirname}"
