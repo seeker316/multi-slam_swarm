@@ -1,4 +1,10 @@
-#include <display.h>
+#include <cairo/cairo.h>
+#include <cairo/cairo-xlib.h>
+#include <X11/Xlib.h>
+#include <vector>
+#include <iostream>
+#include "arena.h"
+
 
 using namespace std;
 
@@ -56,6 +62,7 @@ int main()
 
     int screen = DefaultScreen(dpy);
     Window root = RootWindow(dpy, screen);
+    // cout<<"?????"<<matrix[0].size()<<endl;
     Window win = XCreateSimpleWindow(dpy, root, 10, 10, matrix[0].size() * CELL_SIZE, matrix.size() * CELL_SIZE, 1,
                                      BlackPixel(dpy, screen), WhitePixel(dpy, screen));
     XSelectInput(dpy, win, ExposureMask | KeyPressMask);
