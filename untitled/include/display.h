@@ -3,14 +3,18 @@
 #include <cairo/cairo.h>
 #include <cairo/cairo-xlib.h>
 #include <X11/Xlib.h>
+#include <X11/keysym.h> 
 #include <vector>
 #include <iostream>
 #include "arena.h"
 
-void display(cairo_t* cr,bool **arena_mat,uint16_t mat_len);
+
+using namespace std;
+
+void display(cairo_t* cr, bool **arena_mat, uint16_t mat_len);
 int disp_init(const arena &a);
 
-const int CELL_SIZE = 1;
+const int CELL_SIZE = 4;
 
 void display(cairo_t* cr,bool **arena_mat,uint16_t mat_len)
 {
@@ -37,7 +41,7 @@ void display(cairo_t* cr,bool **arena_mat,uint16_t mat_len)
 
 int disp_init(const arena &a)
 {   
-    int dim = a.mat_len*CELL_SIZE;
+    int dim = a.arena_shape.mat_len*CELL_SIZE;
 
     Display* dpy = XOpenDisplay(nullptr);
     if(!dpy)
@@ -67,11 +71,14 @@ int disp_init(const arena &a)
 
         if(e.type == Expose)
         {
-            display(cr,a.arena_mat,a.mat_len);
+            display(cr,a.arena_shape.mat,a.arena_shape.mat_len);
         }
         else if (e.type == KeyPress)
         {
-            running = false;
+            if (XLookupKeysym(&e.xkey, 0) == XK_q)
+            {
+                running = false;  // Exit only on 'q'
+            }
         }
 
     }
