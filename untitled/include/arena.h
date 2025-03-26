@@ -1,9 +1,6 @@
 #pragma once
 
 #include <iostream>
-#include <vector>
-#include <cstdint>
-#include <cstdbool>
 #include <cmath>
 
 #define DEG_TO_RAD (M_PI/ 180)
@@ -30,9 +27,13 @@ class arena
 
         shape arena_shape;
 
-    private:
+        // friend void operator|(arena& arena, const robot& robot);
 
+
+
+    private:
         
+
         uint16_t resolution = 10; //set the resolution as how many units make 1 m
         uint16_t buffer = 5; //doubt its existence
         uint16_t scaled_len = 0;
@@ -45,6 +46,7 @@ class arena
 
 
 };
+
 
 void disp_matrix(bool **mat,uint16_t mat_len);
 
@@ -135,18 +137,6 @@ int arena::create_arena()
 }
 
 
-// void arena::disp_arena()
-// {
-//     for(int i = 0; i < mat_len; ++i)
-//     {
-//         for(int j = 0; j < mat_len; ++j)
-//         {
-//             cout << arena_mat[i][j] << " ";
-//         }
-//         cout << endl;
-//     }
-// }
-
 void arena::draw_wall()
 {   
     float cos_comp,sin_comp;
@@ -182,15 +172,12 @@ void arena::draw_wall()
         }
        
     
-        
-        
-
     }else if(arena_shape.num_sides > 2)
     {   
 
-        int side_start_x = (arena_shape.mat_len/2) - (scaled_len)/2;
+        int side_start_x = (float(arena_shape.mat_len)/2) - (scaled_len)/2;
         float apothem = scaled_len / (2*tan(DEG_TO_RAD*(180/arena_shape.num_sides)));
-        int side_start_y = ((arena_shape.mat_len/2) + apothem) - 1;
+        int side_start_y = ((float(arena_shape.mat_len)/2) + apothem);
         
         int angle_step = 0;
         int exterior_angle =  180 - arena_shape.interior_angle;
@@ -247,5 +234,55 @@ void disp_matrix(bool **mat,uint16_t mat_len)
             cout << mat[i][j] << " ";
         }
         cout << endl;
+    }
+}
+
+void num_zero(bool **mat,uint16_t mat_len)
+{   
+    int count = 0;
+    for(int i = 0; i < mat_len; ++i)
+    {
+        for(int j = 0; j < mat_len; ++j)
+        {
+            if(mat[i][j] == 0)
+                count++;
+        }
+    }
+    cout<< "The zero count is" << count << endl;
+}
+
+void solid_fill(bool **mat,uint16_t mat_len)
+{   
+    uint16_t start_point = 0, end_point = 0;
+
+    for(int i = 0; i < mat_len; ++i)
+    {   
+        for(int j = 0; j < mat_len; ++j)
+        {
+            if(mat[i][j] == 1)
+            {
+                start_point = j;
+                break;
+            }
+        }
+        for(int j = mat_len-1; j >= 0; --j)
+        {
+            if(mat[i][j] == 1)
+            {
+                end_point = j;
+                break;
+            }
+        }
+
+        if (start_point != 0 || end_point != 0)
+        {
+            for(int j = start_point+1; j <= end_point-1; ++j)
+            {
+                mat[i][j] = 1;
+            }
+            
+            start_point = 0,end_point = 0;
+        }
+
     }
 }

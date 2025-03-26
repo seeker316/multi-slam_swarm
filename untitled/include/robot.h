@@ -1,6 +1,5 @@
 #include "arena.h"
 
-
 class robot
 {
 private:
@@ -10,11 +9,27 @@ private:
 
 
 public:
+    uint16_t robot_centreX,robot_centreY;
     robot();
     robot(string robot_type,uint16_t num_sides,float side_len);
     ~robot();
 
+    friend void operator|(arena& arena, const robot& robot);
+
 };
+
+void operator|(arena& arena, const robot& robot) {
+    u_int16_t start_col = ((arena.arena_shape.mat_len-1) / 2) - ((robot.robot_shape.mat_len-1) / 2);
+    u_int16_t start_row = (arena.arena_shape.mat_len / 2) - (robot.robot_shape.mat_len / 2);
+
+    for (int i = 0; i < robot.robot_shape.mat_len; i++) {
+        for (int j = 0; j < robot.robot_shape.mat_len; j++) {
+            arena.arena_shape.mat[start_row + i][start_col + j] |= robot.robot_shape.mat[i][j];
+            
+        }
+    }
+}
+
 
 robot::robot()
 {
@@ -24,10 +39,9 @@ robot::robot()
 
     create_robot();
     draw_robot();
-
     disp_matrix(robot_shape.mat,robot_shape.mat_len);
-}
 
+}
 
 robot::robot(string robot_type,uint16_t num_sides,float side_len)
 {
@@ -37,7 +51,6 @@ robot::robot(string robot_type,uint16_t num_sides,float side_len)
 
     create_robot();
     draw_robot();
-
     disp_matrix(robot_shape.mat,robot_shape.mat_len);
 }
 
@@ -101,10 +114,11 @@ void robot::draw_robot()
 {   
     float cos_comp,sin_comp;
 
+    robot_centreX = (robot_shape.mat_len/2);
+    robot_centreY = (robot_shape.mat_len/2);
+
     if(robot_shape.num_sides == 1)
     {
-        int center_x = (robot_shape.mat_len/2);
-        int center_y = (robot_shape.mat_len/2);
         int radius = robot_shape.side_len;
 
 
@@ -115,11 +129,11 @@ void robot::draw_robot()
             sin_comp = std::round((sin(i * DEG_TO_RAD)) * 100000) / 100000;
             cos_comp = std::round((cos(i * DEG_TO_RAD)) * 100000) / 100000; 
 
-            x = (radius*cos_comp) + center_x;
-            y = (radius*sin_comp) + center_y;
+            x = (radius*cos_comp) + robot_centreX;
+            y = (radius*sin_comp) + robot_centreY;
             
             /////debug
-            robot_shape.mat[center_y][center_x] = true;
+            robot_shape.mat[robot_centreY][robot_centreX] = true;
             
             if(x >= 0 && x < robot_shape.mat_len && y >= 0 && y < robot_shape.mat_len) // Prevent out-of-bounds access
                     robot_shape.mat[y][x] = true;
@@ -129,46 +143,40 @@ void robot::draw_robot()
 
     }else if(robot_shape.num_sides > 2)
     {   
+        int side_start_x = (float(robot_shape.mat_len)/2 - (robot_shape.side_len)/2);
+        float apothem = robot_shape.side_len / (2*tan(DEG_TO_RAD*(180/robot_shape.num_sides)));
+        int side_start_y = (float(robot_shape.mat_len/2) + apothem);
 
-        int side_start_x = (robot_shape.mat_len/2) - (robot_shape.mat_len)/2;
-        float apothem = robot_shape.mat_len / (2*tan(DEG_TO_RAD*(180/robot_shape.num_sides)));
-        int side_start_y = ((robot_shape.mat_len/2) + apothem) - 1;
-        
+
         int angle_step = 0;
         int exterior_angle =  180 - robot_shape.interior_angle;
+
         for(int i = 0;i < robot_shape.num_sides;i++)
         {   
             int y = 0,x = 0,a = 0, b = 0;
 
-            for(int j = 0;j < robot_shape.mat_len;j++)
+            for(int j = 0;j < robot_shape.side_len;j++)
             {   
                 sin_comp = std::round((sin(angle_step * DEG_TO_RAD)) * 100000) / 100000;
                 cos_comp = std::round((cos(angle_step * DEG_TO_RAD)) * 100000) / 100000; 
     
                 y = side_start_y - round(j*sin_comp);
                 x = side_start_x + round(j*cos_comp);
-                
-                if(x >= 0 && x < robot_shape.mat_len && y >= 0 && y < robot_shape.mat_len) // Prevent out-of-bounds access
-                    robot_shape.mat[y][x] = true;
 
-                // for(int i = -arena_shape.wall_thickness;i < (arena_shape.wall_thickness);i++)
-                // {
-                //     for(int j = -arena_shape.wall_thickness;j < (arena_shape.wall_thickness);j++)
-                //     {
-                //         a = y+i, b = x+j;
-                //         if(a >= 0 && a < mat_len && b >= 0 && b < mat_len) // Prevent out-of-bounds access
-                //             arena_mat[a][b] = true;
-                //     }   
-                // }
+                if(y >= 0 && y < robot_shape.mat_len && x >= 0 && x < robot_shape.mat_len) // Prevent out-of-bounds access
+                        robot_shape.mat[y][x] = true;
+                
             }
 
             side_start_y = y;
             side_start_x = x;
             angle_step += exterior_angle;
 
-        }        
-    
+        }
+               
     }
+
+    solid_fill(robot_shape.mat,robot_shape.mat_len);
     
 }
 
