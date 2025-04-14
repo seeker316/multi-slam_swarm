@@ -1,35 +1,38 @@
+#pragma once
 #include "arena.h"
 
 class robot
 {
 private:
-    shape robot_shape;
     int create_robot();
     void draw_robot();
 
 
 public:
+    shape robot_shape;
     uint16_t robot_centreX,robot_centreY;
+    
     robot();
     robot(string robot_type,uint16_t num_sides,float side_len);
     ~robot();
 
-    friend void operator|(arena& arena, const robot& robot);
-
 };
 
-void operator|(arena& arena, const robot& robot) {
-    u_int16_t start_col = ((arena.arena_shape.mat_len-1) / 2) - ((robot.robot_shape.mat_len-1) / 2);
-    u_int16_t start_row = (arena.arena_shape.mat_len / 2) - (robot.robot_shape.mat_len / 2);
 
-    for (int i = 0; i < robot.robot_shape.mat_len; i++) {
-        for (int j = 0; j < robot.robot_shape.mat_len; j++) {
-            arena.arena_shape.mat[start_row + i][start_col + j] |= robot.robot_shape.mat[i][j];
+void operator|(shape& shape1, const shape& shape2) 
+{
+    u_int16_t start_col = ((shape1.mat_len-1) / 2) - ((shape2.mat_len-1) / 2);
+    u_int16_t start_row = (shape1.mat_len / 2) - (shape2.mat_len / 2);
+
+    for (int i = 0; i < shape2.mat_len; i++) 
+    {
+        for (int j = 0; j < shape2.mat_len; j++) 
+        {
+            shape1.mat[start_row + i][start_col + j] |= shape2.mat[i][j];
             
         }
     }
 }
-
 
 robot::robot()
 {
@@ -39,7 +42,7 @@ robot::robot()
 
     create_robot();
     draw_robot();
-    disp_matrix(robot_shape.mat,robot_shape.mat_len);
+    // disp_matrix(robot_shape.mat,robot_shape.mat_len);
 
 }
 
@@ -51,7 +54,7 @@ robot::robot(string robot_type,uint16_t num_sides,float side_len)
 
     create_robot();
     draw_robot();
-    disp_matrix(robot_shape.mat,robot_shape.mat_len);
+    // disp_matrix(robot_shape.mat,robot_shape.mat_len);
 }
 
 robot::~robot()
@@ -76,13 +79,13 @@ int robot::create_robot()
     {   
         robot_shape.mat_len = (robot_shape.side_len*2) + 1;
         
-        robot_shape.mat = new bool*[robot_shape.mat_len];
+        robot_shape.mat = new uint8_t*[robot_shape.mat_len];
 
         for(uint16_t i = 0; i < robot_shape.mat_len; ++i) 
         {
-            robot_shape.mat[i] = new bool[robot_shape.mat_len];
+            robot_shape.mat[i] = new uint8_t[robot_shape.mat_len];
 
-            cout<<"mat_len "<<robot_shape.mat_len<<endl;
+            // cout<<"mat_len "<<robot_shape.mat_len<<endl;
         }
         
         return 0; 
@@ -93,11 +96,11 @@ int robot::create_robot()
 
         robot_shape.mat_len = (2 * robot_shape.side_len / (2 * sin(M_PI / n)));
 
-        robot_shape.mat = new bool*[robot_shape.mat_len]();
+        robot_shape.mat = new uint8_t*[robot_shape.mat_len]();
         
         for(uint16_t i = 0; i < robot_shape.mat_len; ++i) 
         {
-            robot_shape.mat[i] = new bool[robot_shape.mat_len];
+            robot_shape.mat[i] = new uint8_t[robot_shape.mat_len];
         }
 
 
@@ -136,7 +139,7 @@ void robot::draw_robot()
             robot_shape.mat[robot_centreY][robot_centreX] = true;
             
             if(x >= 0 && x < robot_shape.mat_len && y >= 0 && y < robot_shape.mat_len) // Prevent out-of-bounds access
-                    robot_shape.mat[y][x] = true;
+                    robot_shape.mat[y][x] = red;
             
         }
 
@@ -164,7 +167,7 @@ void robot::draw_robot()
                 x = side_start_x + round(j*cos_comp);
 
                 if(y >= 0 && y < robot_shape.mat_len && x >= 0 && x < robot_shape.mat_len) // Prevent out-of-bounds access
-                        robot_shape.mat[y][x] = true;
+                        robot_shape.mat[y][x] = red;
                 
             }
 
@@ -176,7 +179,7 @@ void robot::draw_robot()
                
     }
 
-    solid_fill(robot_shape.mat,robot_shape.mat_len);
+    solid_fill(robot_shape.mat,robot_shape.mat_len,red);
     
 }
 
