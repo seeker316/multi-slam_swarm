@@ -27,10 +27,7 @@ void operator|(shape& shape1, const shape& shape2)
     for (int i = 0; i < shape2.mat_len; i++) 
     {
         for (int j = 0; j < shape2.mat_len; j++) 
-        {
             shape1.mat[start_row + i][start_col + j] |= shape2.mat[i][j];
-            
-        }
     }
 }
 
@@ -62,9 +59,8 @@ robot::~robot()
     if(robot_shape.mat)
     {
         for(uint16_t i = 0; i < robot_shape.mat_len; ++i) 
-        {
             delete [] robot_shape.mat[i];
-        }
+
         delete [] robot_shape.mat;
         robot_shape.mat = nullptr;
 
@@ -82,11 +78,7 @@ int robot::create_robot()
         robot_shape.mat = new uint8_t*[robot_shape.mat_len];
 
         for(uint16_t i = 0; i < robot_shape.mat_len; ++i) 
-        {
             robot_shape.mat[i] = new uint8_t[robot_shape.mat_len];
-
-            // cout<<"mat_len "<<robot_shape.mat_len<<endl;
-        }
         
         return 0; 
 
@@ -99,9 +91,7 @@ int robot::create_robot()
         robot_shape.mat = new uint8_t*[robot_shape.mat_len]();
         
         for(uint16_t i = 0; i < robot_shape.mat_len; ++i) 
-        {
             robot_shape.mat[i] = new uint8_t[robot_shape.mat_len];
-        }
 
 
         return 0;

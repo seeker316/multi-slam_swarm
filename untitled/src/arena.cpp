@@ -12,7 +12,7 @@ int main()
 //  ______________________________
     
 
-    arena test("square",6,3,3);
+    arena test("hexagon",6,3,2);
     robot myraI("MYRA",1,5);
 
     test.arena_shape | myraI.robot_shape;
