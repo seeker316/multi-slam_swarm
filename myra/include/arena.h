@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <cstdint>
 #include "utils.h"
 
 #define DEG_TO_RAD (M_PI/ 180)

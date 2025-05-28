@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/myra.dir/src/arena.cpp.o -o myra  -lcairo -lX11 
