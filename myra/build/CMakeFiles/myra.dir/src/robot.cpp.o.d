@@ -1,6 +1,8 @@
-CMakeFiles/myra.dir/src/arena.cpp.o: \
- /home/bb8/Documents/multi-slam_swarm/myra/src/arena.cpp \
+CMakeFiles/myra.dir/src/robot.cpp.o: \
+ /home/bb8/Documents/multi-slam_swarm/myra/src/robot.cpp \
  /usr/include/stdc-predef.h \
+ /home/bb8/Documents/multi-slam_swarm/myra/include/robot.h \
+ /home/bb8/Documents/multi-slam_swarm/myra/include/object.h \
  /home/bb8/Documents/multi-slam_swarm/myra/include/arena.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \

@@ -13,6 +13,12 @@ include_directories(include)
 # defines a variable source which lists all the source files
 set(SOURCES 
     src/arena.cpp
+    src/display.cpp
+    src/object.cpp
+    src/robot.cpp
+    src/utils.cpp
+    src/main.cpp
+
 )
 
 # creates a executable named kira using the source files defined in the source variable

@@ -83,17 +83,97 @@ CMakeFiles/myra.dir/src/arena.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myra.dir/src/arena.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bb8/Documents/multi-slam_swarm/myra/src/arena.cpp -o CMakeFiles/myra.dir/src/arena.cpp.s
 
+CMakeFiles/myra.dir/src/display.cpp.o: CMakeFiles/myra.dir/flags.make
+CMakeFiles/myra.dir/src/display.cpp.o: /home/bb8/Documents/multi-slam_swarm/myra/src/display.cpp
+CMakeFiles/myra.dir/src/display.cpp.o: CMakeFiles/myra.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bb8/Documents/multi-slam_swarm/myra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/myra.dir/src/display.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myra.dir/src/display.cpp.o -MF CMakeFiles/myra.dir/src/display.cpp.o.d -o CMakeFiles/myra.dir/src/display.cpp.o -c /home/bb8/Documents/multi-slam_swarm/myra/src/display.cpp
+
+CMakeFiles/myra.dir/src/display.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myra.dir/src/display.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bb8/Documents/multi-slam_swarm/myra/src/display.cpp > CMakeFiles/myra.dir/src/display.cpp.i
+
+CMakeFiles/myra.dir/src/display.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myra.dir/src/display.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bb8/Documents/multi-slam_swarm/myra/src/display.cpp -o CMakeFiles/myra.dir/src/display.cpp.s
+
+CMakeFiles/myra.dir/src/object.cpp.o: CMakeFiles/myra.dir/flags.make
+CMakeFiles/myra.dir/src/object.cpp.o: /home/bb8/Documents/multi-slam_swarm/myra/src/object.cpp
+CMakeFiles/myra.dir/src/object.cpp.o: CMakeFiles/myra.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bb8/Documents/multi-slam_swarm/myra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/myra.dir/src/object.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myra.dir/src/object.cpp.o -MF CMakeFiles/myra.dir/src/object.cpp.o.d -o CMakeFiles/myra.dir/src/object.cpp.o -c /home/bb8/Documents/multi-slam_swarm/myra/src/object.cpp
+
+CMakeFiles/myra.dir/src/object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myra.dir/src/object.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bb8/Documents/multi-slam_swarm/myra/src/object.cpp > CMakeFiles/myra.dir/src/object.cpp.i
+
+CMakeFiles/myra.dir/src/object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myra.dir/src/object.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bb8/Documents/multi-slam_swarm/myra/src/object.cpp -o CMakeFiles/myra.dir/src/object.cpp.s
+
+CMakeFiles/myra.dir/src/robot.cpp.o: CMakeFiles/myra.dir/flags.make
+CMakeFiles/myra.dir/src/robot.cpp.o: /home/bb8/Documents/multi-slam_swarm/myra/src/robot.cpp
+CMakeFiles/myra.dir/src/robot.cpp.o: CMakeFiles/myra.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bb8/Documents/multi-slam_swarm/myra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/myra.dir/src/robot.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myra.dir/src/robot.cpp.o -MF CMakeFiles/myra.dir/src/robot.cpp.o.d -o CMakeFiles/myra.dir/src/robot.cpp.o -c /home/bb8/Documents/multi-slam_swarm/myra/src/robot.cpp
+
+CMakeFiles/myra.dir/src/robot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myra.dir/src/robot.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bb8/Documents/multi-slam_swarm/myra/src/robot.cpp > CMakeFiles/myra.dir/src/robot.cpp.i
+
+CMakeFiles/myra.dir/src/robot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myra.dir/src/robot.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bb8/Documents/multi-slam_swarm/myra/src/robot.cpp -o CMakeFiles/myra.dir/src/robot.cpp.s
+
+CMakeFiles/myra.dir/src/utils.cpp.o: CMakeFiles/myra.dir/flags.make
+CMakeFiles/myra.dir/src/utils.cpp.o: /home/bb8/Documents/multi-slam_swarm/myra/src/utils.cpp
+CMakeFiles/myra.dir/src/utils.cpp.o: CMakeFiles/myra.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bb8/Documents/multi-slam_swarm/myra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/myra.dir/src/utils.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myra.dir/src/utils.cpp.o -MF CMakeFiles/myra.dir/src/utils.cpp.o.d -o CMakeFiles/myra.dir/src/utils.cpp.o -c /home/bb8/Documents/multi-slam_swarm/myra/src/utils.cpp
+
+CMakeFiles/myra.dir/src/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myra.dir/src/utils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bb8/Documents/multi-slam_swarm/myra/src/utils.cpp > CMakeFiles/myra.dir/src/utils.cpp.i
+
+CMakeFiles/myra.dir/src/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myra.dir/src/utils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bb8/Documents/multi-slam_swarm/myra/src/utils.cpp -o CMakeFiles/myra.dir/src/utils.cpp.s
+
+CMakeFiles/myra.dir/src/main.cpp.o: CMakeFiles/myra.dir/flags.make
+CMakeFiles/myra.dir/src/main.cpp.o: /home/bb8/Documents/multi-slam_swarm/myra/src/main.cpp
+CMakeFiles/myra.dir/src/main.cpp.o: CMakeFiles/myra.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/bb8/Documents/multi-slam_swarm/myra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/myra.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myra.dir/src/main.cpp.o -MF CMakeFiles/myra.dir/src/main.cpp.o.d -o CMakeFiles/myra.dir/src/main.cpp.o -c /home/bb8/Documents/multi-slam_swarm/myra/src/main.cpp
+
+CMakeFiles/myra.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myra.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bb8/Documents/multi-slam_swarm/myra/src/main.cpp > CMakeFiles/myra.dir/src/main.cpp.i
+
+CMakeFiles/myra.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myra.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bb8/Documents/multi-slam_swarm/myra/src/main.cpp -o CMakeFiles/myra.dir/src/main.cpp.s
+
 # Object files for target myra
 myra_OBJECTS = \
-"CMakeFiles/myra.dir/src/arena.cpp.o"
+"CMakeFiles/myra.dir/src/arena.cpp.o" \
+"CMakeFiles/myra.dir/src/display.cpp.o" \
+"CMakeFiles/myra.dir/src/object.cpp.o" \
+"CMakeFiles/myra.dir/src/robot.cpp.o" \
+"CMakeFiles/myra.dir/src/utils.cpp.o" \
+"CMakeFiles/myra.dir/src/main.cpp.o"
 
 # External object files for target myra
 myra_EXTERNAL_OBJECTS =
 
 myra: CMakeFiles/myra.dir/src/arena.cpp.o
+myra: CMakeFiles/myra.dir/src/display.cpp.o
+myra: CMakeFiles/myra.dir/src/object.cpp.o
+myra: CMakeFiles/myra.dir/src/robot.cpp.o
+myra: CMakeFiles/myra.dir/src/utils.cpp.o
+myra: CMakeFiles/myra.dir/src/main.cpp.o
 myra: CMakeFiles/myra.dir/build.make
 myra: CMakeFiles/myra.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bb8/Documents/multi-slam_swarm/myra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable myra"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/bb8/Documents/multi-slam_swarm/myra/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable myra"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/myra.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

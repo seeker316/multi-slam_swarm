@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/myra.dir/src/arena.cpp.o -o myra  -lcairo -lX11 
+/usr/bin/c++ CMakeFiles/myra.dir/src/arena.cpp.o CMakeFiles/myra.dir/src/display.cpp.o CMakeFiles/myra.dir/src/object.cpp.o CMakeFiles/myra.dir/src/robot.cpp.o CMakeFiles/myra.dir/src/utils.cpp.o CMakeFiles/myra.dir/src/main.cpp.o -o myra  -lcairo -lX11 

@@ -1,10 +1,10 @@
+#pragma once
+
 #include "display.h"
 
-const int CELL_SIZE = 1;
 
-void display(cairo_t* cr,bool **arena_mat,uint16_t mat_len)
+void display(cairo_t* cr,uint8_t **arena_mat,uint16_t mat_len)
 {
-    cout<<mat_len<<endl;
 
     for(int i = 0; i < mat_len; i++)
     {
@@ -14,6 +14,15 @@ void display(cairo_t* cr,bool **arena_mat,uint16_t mat_len)
                 cairo_set_source_rgb(cr,1,1,1);
             else if (arena_mat[i][j] == 1)
                 cairo_set_source_rgb(cr,0,0,0);
+            else if (arena_mat[i][j] == 2)
+                cairo_set_source_rgb(cr,1,0,0);
+            else if (arena_mat[i][j] == 3)
+                cairo_set_source_rgb(cr,0,0,1);
+            else if (arena_mat[i][j] == 4)
+                cairo_set_source_rgb(cr,0,1,0);
+            else if (arena_mat[i][j] == 5)
+                cairo_set_source_rgb(cr,0.5,0.5,0.5);
+
 
             cairo_rectangle(cr,j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE);
             cairo_fill(cr);
@@ -26,9 +35,9 @@ void display(cairo_t* cr,bool **arena_mat,uint16_t mat_len)
     }
 }
 
-int disp_init(const arena &a)
+int disp_init(uint8_t **mat,uint16_t mat_len)
 {   
-    int dim = a.mat_len*CELL_SIZE;
+    int dim = mat_len*CELL_SIZE;
 
     Display* dpy = XOpenDisplay(nullptr);
     if(!dpy)
@@ -58,11 +67,14 @@ int disp_init(const arena &a)
 
         if(e.type == Expose)
         {
-            display(cr,a.arena_mat,a.mat_len);
+            display(cr,mat,mat_len);
         }
         else if (e.type == KeyPress)
         {
-            running = false;
+            if (XLookupKeysym(&e.xkey, 0) == XK_q)
+            {
+                running = false;  // Exit only on 'q'
+            }
         }
 
     }
@@ -74,12 +86,3 @@ int disp_init(const arena &a)
 
     return 0;
 }
-
-// int main()
-// {
-
-//     arena hex("Hexagon",6,8,0);
-//     int i = disp_init(hex);
-//     return 0;
-// }
-

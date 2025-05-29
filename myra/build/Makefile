@@ -153,6 +153,126 @@ src/arena.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/arena.cpp.s
 .PHONY : src/arena.cpp.s
 
+src/display.o: src/display.cpp.o
+.PHONY : src/display.o
+
+# target to build an object file
+src/display.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/display.cpp.o
+.PHONY : src/display.cpp.o
+
+src/display.i: src/display.cpp.i
+.PHONY : src/display.i
+
+# target to preprocess a source file
+src/display.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/display.cpp.i
+.PHONY : src/display.cpp.i
+
+src/display.s: src/display.cpp.s
+.PHONY : src/display.s
+
+# target to generate assembly for a file
+src/display.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/display.cpp.s
+.PHONY : src/display.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+src/object.o: src/object.cpp.o
+.PHONY : src/object.o
+
+# target to build an object file
+src/object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/object.cpp.o
+.PHONY : src/object.cpp.o
+
+src/object.i: src/object.cpp.i
+.PHONY : src/object.i
+
+# target to preprocess a source file
+src/object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/object.cpp.i
+.PHONY : src/object.cpp.i
+
+src/object.s: src/object.cpp.s
+.PHONY : src/object.s
+
+# target to generate assembly for a file
+src/object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/object.cpp.s
+.PHONY : src/object.cpp.s
+
+src/robot.o: src/robot.cpp.o
+.PHONY : src/robot.o
+
+# target to build an object file
+src/robot.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/robot.cpp.o
+.PHONY : src/robot.cpp.o
+
+src/robot.i: src/robot.cpp.i
+.PHONY : src/robot.i
+
+# target to preprocess a source file
+src/robot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/robot.cpp.i
+.PHONY : src/robot.cpp.i
+
+src/robot.s: src/robot.cpp.s
+.PHONY : src/robot.s
+
+# target to generate assembly for a file
+src/robot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/robot.cpp.s
+.PHONY : src/robot.cpp.s
+
+src/utils.o: src/utils.cpp.o
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/utils.cpp.o
+.PHONY : src/utils.cpp.o
+
+src/utils.i: src/utils.cpp.i
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/utils.cpp.i
+.PHONY : src/utils.cpp.i
+
+src/utils.s: src/utils.cpp.s
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/myra.dir/build.make CMakeFiles/myra.dir/src/utils.cpp.s
+.PHONY : src/utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +285,21 @@ help:
 	@echo "... src/arena.o"
 	@echo "... src/arena.i"
 	@echo "... src/arena.s"
+	@echo "... src/display.o"
+	@echo "... src/display.i"
+	@echo "... src/display.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/object.o"
+	@echo "... src/object.i"
+	@echo "... src/object.s"
+	@echo "... src/robot.o"
+	@echo "... src/robot.i"
+	@echo "... src/robot.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 
