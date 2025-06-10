@@ -2,7 +2,7 @@
 
 #include "utils.h"
 
-void disp_matrix(uint8_t **mat,uint16_t mat_len)
+void disp_matrix(const vector<vector<uint8_t>> mat,uint16_t mat_len)
 {
     for(int i = 0; i < mat_len; ++i)
     {
@@ -14,7 +14,7 @@ void disp_matrix(uint8_t **mat,uint16_t mat_len)
     }
 }
 
-void num_zero(uint8_t **mat,uint16_t mat_len)
+void num_zero(const vector<vector<uint8_t>> mat,uint16_t mat_len)
 {   
     int count = 0;
     for(int i = 0; i < mat_len; ++i)
@@ -28,7 +28,7 @@ void num_zero(uint8_t **mat,uint16_t mat_len)
     cout<< "The zero count is" << count << endl;
 }
 
-void solid_fill(uint8_t **mat,uint16_t mat_len,uint8_t color)
+void solid_fill(vector<vector<uint8_t>> &mat,uint16_t mat_len,uint8_t color)
 {   
     uint16_t start_point = 0, end_point = 0;
 

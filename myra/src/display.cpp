@@ -3,7 +3,7 @@
 #include "display.h"
 
 
-void display(cairo_t* cr,uint8_t **arena_mat,uint16_t mat_len)
+void display(cairo_t* cr,const vector<vector<uint8_t>> arena_mat,uint16_t mat_len)
 {
 
     for(int i = 0; i < mat_len; i++)
@@ -35,7 +35,7 @@ void display(cairo_t* cr,uint8_t **arena_mat,uint16_t mat_len)
     }
 }
 
-int disp_init(uint8_t **mat,uint16_t mat_len)
+int disp_init(const vector<vector<uint8_t>> mat,uint16_t mat_len)
 {   
     int dim = mat_len*CELL_SIZE;
 

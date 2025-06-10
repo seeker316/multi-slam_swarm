@@ -31,6 +31,7 @@ arena::arena(string custom_shape,uint16_t num_sides,float side_len, u_int wall_t
 
 arena::~arena()
 {
+    /*
     if(arena_shape.mat)
     {
         for(uint16_t i = 0; i < arena_shape.mat_len; ++i) 
@@ -40,6 +41,7 @@ arena::~arena()
         arena_shape.mat = nullptr;
 
     }
+    */
 }
 
 
@@ -51,11 +53,13 @@ int arena::create_arena()
     {   
         arena_shape.mat_len = (scaled_len + (arena_shape.wall_thickness+1))*2 - 1;
 
-        arena_shape.mat = new uint8_t *[arena_shape.mat_len];
+        //arena_shape.mat = new uint8_t *[arena_shape.mat_len];
 
-        for(uint16_t i = 0; i < arena_shape.mat_len; ++i) 
-            arena_shape.mat[i] = new uint8_t[arena_shape.mat_len];
+      //for(uint16_t i = 0; i < arena_shape.mat_len; ++i) 
+        //arena_shape.mat[i] = new uint8_t[arena_shape.mat_len];
         
+        arena_shape.resize_mat(arena_shape.mat_len);
+
         return 0; 
 
     }else if(n > 2)
@@ -64,11 +68,13 @@ int arena::create_arena()
 
         arena_shape.mat_len = (scaled_len / sin(M_PI / n)) + 2*arena_shape.wall_thickness + 1;
         
-        arena_shape.mat = new uint8_t *[arena_shape.mat_len]();
+        //arena_shape.mat = new uint8_t *[arena_shape.mat_len]();
         
-        for(uint16_t i = 0; i < arena_shape.mat_len; ++i)
-            arena_shape.mat[i] = new uint8_t[arena_shape.mat_len];
+        //for(uint16_t i = 0; i < arena_shape.mat_len; ++i)
+        //    arena_shape.mat[i] = new uint8_t[arena_shape.mat_len];
 
+        arena_shape.resize_mat(arena_shape.mat_len);
+        
         return 0;
 
     }else 

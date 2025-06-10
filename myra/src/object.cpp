@@ -1,16 +1,27 @@
 #pragma once
 #include "object.h"
 
-void operator|(shape& shape1, const shape& shape2) 
+shape operator|(shape& shape1, const shape& shape2) 
 {
-    u_int16_t start_col = ((shape1.mat_len-1) / 2) - ((shape2.mat_len-1) / 2);
-    u_int16_t start_row = (shape1.mat_len / 2) - (shape2.mat_len / 2);
+    uint start_col = 0,start_row = 0;
+    shape result(shape1.mat_len);
+    
+    start_col = ((shape1.mat_len-1) / 2) - ((shape2.mat_len-1) / 2) + shape1.offsetX + shape2.offsetX;
+    start_row = (shape1.mat_len / 2) - (shape2.mat_len / 2) + shape1.offsetY + shape2.offsetY;
 
     for (int i = 0; i < shape2.mat_len; i++) 
     {
         for (int j = 0; j < shape2.mat_len; j++) 
-            shape1.mat[start_row + i][start_col + j] |= shape2.mat[i][j];
+            result.mat[start_row + i][start_col + j] |= shape2.mat[i][j];
     }
+
+    for (int i = 0; i < shape1.mat_len; i++) 
+    {
+        for (int j = 0; j < shape1.mat_len; j++) 
+            result.mat[i][j] |= shape1.mat[i][j];
+    }    
+
+    return result;
 }
 
 object::object()
@@ -19,6 +30,8 @@ object::object()
     object_shape.type = "triangle";
     object_shape.num_sides = 3;
     object_shape.side_len = 3;
+    
+    posx, posy = 0;
 
     create_object();
     draw_object();
@@ -35,6 +48,8 @@ object::object(string object_type, string shape_type,uint16_t num_sides,float si
     object_shape.num_sides = num_sides;
     object_shape.side_len = side_len;
     
+    posx, posy = 0; 
+
     if(object_type == "robot")
         color = red;
     else if(object_type == "obstacle")
@@ -45,12 +60,12 @@ object::object(string object_type, string shape_type,uint16_t num_sides,float si
 
     create_object();
     draw_object();
-    // disp_matrix(object_shape.mat,object_shape.mat_len);
+    //disp_matrix(object_shape.mat,object_shape.mat_len);
 }
 
 object::~object()
 {
-    if(object_shape.mat)
+ /*   if(object_shape.mat)
     {
         for(uint16_t i = 0; i < object_shape.mat_len; ++i) 
             delete [] object_shape.mat[i];
@@ -59,6 +74,7 @@ object::~object()
         object_shape.mat = nullptr;
 
     }
+*/
 }
 
 int object::create_object()
@@ -69,11 +85,17 @@ int object::create_object()
     {   
         object_shape.mat_len = (object_shape.side_len*2) + 1;
         
-        object_shape.mat = new uint8_t*[object_shape.mat_len];
+        /*object_shape.mat = new uint8_t*[object_shape.mat_len];
 
         for(uint16_t i = 0; i < object_shape.mat_len; ++i) 
             object_shape.mat[i] = new uint8_t[object_shape.mat_len];
-        
+        */
+        object_shape.resize_mat(object_shape.mat_len);
+
+
+        object_centreX = (object_shape.mat_len/2);
+        object_centreY = (object_shape.mat_len/2);
+
         return 0; 
 
     }else if(n > 2)
@@ -82,10 +104,13 @@ int object::create_object()
 
         object_shape.mat_len = (2 * object_shape.side_len / (2 * sin(M_PI / n)));
 
-        object_shape.mat = new uint8_t*[object_shape.mat_len]();
+        /*object_shape.mat = new uint8_t*[object_shape.mat_len]();
         
         for(uint16_t i = 0; i < object_shape.mat_len; ++i) 
             object_shape.mat[i] = new uint8_t[object_shape.mat_len];
+         */
+        object_shape.resize_mat(object_shape.mat_len);
+
 
 
         return 0;
@@ -100,9 +125,6 @@ int object::create_object()
 void object::draw_object()
 {   
     float cos_comp,sin_comp;
-
-    object_centreX = (object_shape.mat_len/2);
-    object_centreY = (object_shape.mat_len/2);
 
     if(object_shape.num_sides == 1)
     {
@@ -120,7 +142,7 @@ void object::draw_object()
             y = (radius*sin_comp) + object_centreY;
             
             /////debug
-            object_shape.mat[object_centreY][object_centreX] = true;
+            //object_shape.mat[object_centreY][object_centreX] = true;
             
             if(x >= 0 && x < object_shape.mat_len && y >= 0 && y < object_shape.mat_len) // Prevent out-of-bounds access
                     object_shape.mat[y][x] = color;
@@ -165,4 +187,10 @@ void object::draw_object()
 
     solid_fill(object_shape.mat,object_shape.mat_len,color);
     
+}
+
+void object::update_object()
+{
+   int s =0;
+  
 }

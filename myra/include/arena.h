@@ -9,17 +9,6 @@
 
 using namespace std;
 
-struct shape
-{   
-    string type;
-    uint16_t num_sides = 0;
-    float side_len = 0;
-    uint16_t wall_thickness = 1;
-    float interior_angle = 0;
-    uint16_t mat_len;
-    uint8_t **mat;
-};
-
 class arena
 {
     public:
