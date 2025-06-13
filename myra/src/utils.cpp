@@ -2,6 +2,21 @@
 
 #include "utils.h"
 
+char getkey()
+{
+        struct termios oldt, newt;
+        tcgetattr(STDIN_FILENO, &oldt);
+
+        newt = oldt;
+        newt.c_lflag &= ~(ICANON | ECHO);
+        tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+        int ch = getchar();
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+
+        return ch;
+};
+
+
 void disp_matrix(const vector<vector<uint8_t>> mat,uint16_t mat_len)
 {
     for(int i = 0; i < mat_len; ++i)

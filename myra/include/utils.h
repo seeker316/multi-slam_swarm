@@ -3,6 +3,11 @@
 #include <cstdint>
 #include <vector>
 
+#include <termios.h>
+#include <unistd.h>
+#include <cstdlib>
+
+
 using namespace std;
 
 struct shape
@@ -34,3 +39,4 @@ void num_zero(const vector<vector<uint8_t>> mat,uint16_t mat_len);
 
 void solid_fill(vector<vector<uint8_t>> &mat,uint16_t mat_len,uint8_t color);
 
+char getkey();
