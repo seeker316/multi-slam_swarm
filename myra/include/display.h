@@ -3,17 +3,37 @@
 #include <cairo/cairo.h>
 #include <cairo/cairo-xlib.h>
 #include <X11/Xlib.h>
-#include <X11/keysym.h> 
+//#include <X11/keysym.h> 
 #include <vector>
 #include <iostream>
 #include "arena.h"
 
-
 using namespace std;
 
-const int CELL_SIZE = 4;
+class visualize
+{
+    private:
+        const int CELL_SIZE = 4;
+        int dim;    
+   public:
+        Display* dpy;
+        XEvent e;
+        
+        int screen;
+        uint16_t vmat_len;
+        bool running =  true;
 
-void display(cairo_t* cr, const vector<vector<uint8_t>> arena_mat, uint16_t mat_len);
+        Window root,win;
 
-int disp_init(const vector<vector<uint8_t>> mat,uint16_t mat_len);
+        cairo_surface_t *surface;
+        cairo_t* cr;
+
+        
+        visualize();
+        ~visualize();
+
+        void disp_init(uint16_t mat_len);
+        bool render(const vector<vector<uint8_t>>& arena_mat);
+};
+
 
